@@ -1,0 +1,17 @@
+package RosuHavelund;
+
+public class TraceEvent
+{
+
+    private String event;
+
+    public TraceEvent(String event)
+    {
+        this.event = event;
+    }
+
+    public String Value()
+    {
+        return this.event;
+    }
+}

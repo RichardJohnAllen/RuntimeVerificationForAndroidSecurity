@@ -1,0 +1,50 @@
+package RosuHavelund;
+
+import java.util.ArrayList;
+
+public class Trace
+{
+    private ArrayList<TraceEvent> events;
+
+    public Trace()
+    {
+        this.events = new ArrayList<TraceEvent>();	
+    }
+    
+    public Trace(String[] events)
+    {
+        this();
+
+        for (String e : events)
+        {
+            this.events.add( new TraceEvent(e));
+        }
+    }
+
+    public void AddEvent(String event)
+    {
+    	this.events.add( new TraceEvent(event));
+    }
+    
+    public TraceEvent Event(int i)
+    {
+        return this.events.get(i);
+    }
+
+    public int Length()
+    {
+        return this.events.size();
+    }
+    
+    public String toString()
+    {
+    	ArrayList<String> result = new ArrayList<String>();
+    	
+    	for (TraceEvent event : this.events)
+    	{
+    		result.add(event.Value());
+    	}
+    	
+    	return result.toString();
+    }
+}

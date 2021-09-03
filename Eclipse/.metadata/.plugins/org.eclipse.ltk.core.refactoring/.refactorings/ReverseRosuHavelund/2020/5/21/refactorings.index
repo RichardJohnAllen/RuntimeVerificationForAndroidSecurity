@@ -1,0 +1,41 @@
+1589815019946	Rename type 'Expression'
+1589815208259	Delete element
+1589815214370	Delete element
+1589816271655	Rename type 'TemporalExpression'
+1589888288723	Rename local variable 'formula'
+1589905521085	Move compilation unit
+1589905555939	Move compilation unit
+1589905697310	Move compilation unit
+1589907807844	Rename local variable 'formula'
+1589907835426	Rename local variable 'subFormula'
+1589908118718	Rename local variable 'formulae'
+1589908160243	Rename local variable 'formula'
+1589908708679	Rename method 'Expression'
+1589908739350	Rename method 'Expression'
+1589908854395	Rename method 'ExpressionByFormula'
+1589908868527	Rename method 'ExpressionByIndex'
+1589909418528	Rename field 'subFormulae'
+1589976042891	Rename field 'pattern'
+1589976064918	Rename method 'Pattern'
+1589976313604	Delete element
+1589976320458	Delete element
+1589976895416	Rename field 'pattern'
+1589977237255	Rename field 'pattern'
+1589977336702	Rename field 'pattern'
+1589977407074	Rename field 'pattern'
+1589977684862	Rename field 'pattern'
+1589984296077	Delete element
+1589986317880	Rename local variable 'nodes'
+1589987205804	Delete element
+1589987219852	Delete element
+1589987223348	Delete element
+1589987234286	Delete element
+1589987255491	Rename type 'ExpressionRegister'
+1589987318563	Delete element
+1590003438683	Rename local variable 'expressionTree'
+1590003695909	Rename local variable 'previousExpression'
+1590005300374	Rename method 'FindExpressionByIndex'
+1590084579861	Delete element
+1590091257361	Rename local variable 'result'
+1590096048433	Extract method 'getExpressionClass'
+1590104874962	Rename field 'expressionClasses'

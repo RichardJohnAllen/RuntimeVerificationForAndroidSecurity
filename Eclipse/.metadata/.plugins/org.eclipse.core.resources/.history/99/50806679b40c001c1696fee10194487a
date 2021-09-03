@@ -1,0 +1,75 @@
+package RosuHavelund;
+import java.util.ArrayList;
+
+public class DefaultRegister extends Register
+{
+    public DefaultRegister(ArrayList<SyntaxTree> nodes)
+    {
+        super();
+
+        this.properties = new ArrayList<Property>();
+
+        for (SyntaxTree node : nodes)
+        {
+            this.properties.add(new Property(node));
+        }
+
+        for (int p = this.properties.size() - 1; p >= 0; p--)
+        {
+            Property property = this.properties.get(p);
+            String formula = property.Formula();
+            
+            if (this.EvaluateLiteralFormula(formula))
+            {
+                property.setValid(false);
+            }
+            else if (this.EvaluateUnaryFormula(formula, this.AlwaysPattern))
+            {
+                property.setValid(true);
+            }
+            else if (this.EvaluateUnaryFormula(formula, this.EventuallyPattern))
+            {
+                Property subProperty = this.SubProperty(property, 0);
+
+                property.setValid(subProperty.getValid());
+            }
+            else if (this.EvaluateBinaryOperatorFormula(formula, this.ImpliesPattern))
+            {
+                Property antecendent = this.SubProperty(property, 0);
+                Property conclusion = this.SubProperty(property, 1);
+
+                property.setValid(!antecendent.getValid() || conclusion.getValid());
+            }
+            else if (this.EvaluateBinaryOperatorFormula(formula, this.AndPattern))
+            {
+                Property leftProposition = this.SubProperty(property, 0);
+                Property rightProposition = this.SubProperty(property, 1);
+
+                property.setValid(leftProposition.getValid() && rightProposition.getValid());
+            }
+            else if (this.EvaluateBinaryOperatorFormula(formula, this.UntilPattern))
+            {
+               Property post = this.SubProperty(property, 1);
+
+               property.setValid(post.getValid());
+            }
+            else if (this.EvaluateUnaryFormula(formula, this.NotPattern))
+            {
+               Property subProperty = this.SubProperty(property, 0);
+
+                property.setValid(!subProperty.getValid());
+            }
+            else if (this.EvaluateBinaryOperatorFormula(formula, this.OrPattern))
+            {
+                Property leftProposition = this.SubProperty(property, 0);
+                Property rightProposition = this.SubProperty(property, 1);
+
+                property.setValid(leftProposition.getValid() || rightProposition.getValid());
+            }
+            else if (this.EvaluateUnaryFormula(formula, this.NextPattern))
+            {
+                property.setValid(false);
+            }
+        }
+    }
+}

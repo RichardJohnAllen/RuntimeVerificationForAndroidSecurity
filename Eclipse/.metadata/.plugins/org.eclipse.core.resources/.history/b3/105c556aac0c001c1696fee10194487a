@@ -1,0 +1,40 @@
+// Copyright Richard John Allen 22/5/2020
+
+package reverserosuhavelund.expressions;
+
+class AlwaysExpression extends UnaryExpression {
+	
+	// The always operator is included but not used in the reverse algorithm
+
+	public AlwaysExpression(String formula, AlwaysExpression previous) {
+		
+		super(formula, operator, previous);
+		this.Reset();
+	}
+
+	@Override
+	public boolean Evaluate(String event) {
+		
+		this.setSatisfied(this.LeftOperand().Satisfied() && this.Previous().Satisfied());
+		
+		return this.Satisfied();
+	}
+
+	@Override
+	public void Reset() {
+		
+		this.setSatisfied(true);
+	}
+		
+	private static final String operator = "[]";
+	
+	public static boolean Match(String formula)
+	{
+		return ExpressionMatcher.Matches(formula, operator);
+	}
+	
+	public static int MatchPosition(String formula)
+	{
+		return ExpressionMatcher.MatchPosition(formula, operator);
+	}
+}

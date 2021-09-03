@@ -1,0 +1,15 @@
+// Copyright Richard John Allen 22/5/2020
+
+package reverserosuhavelund.dynamicconditions;
+
+import java.util.ArrayList;
+
+import reverserosuhavelund.TraceEvent;
+
+public class DefaultConditions {
+
+	public ArrayList<TraceEvent> Met(ArrayList<TraceEvent> satisfyingEvents) {
+		
+		return satisfyingEvents;
+	};
+}

@@ -1,0 +1,84 @@
+// Copyright Richard John Allen 22/5/2020
+
+package reverserosuhavelund.dynamicconditions;
+
+import java.util.ArrayList;
+
+import reverserosuhavelund.TraceEvent;
+
+public class CollusionConditions extends DefaultConditions {
+
+	@Override
+	public ArrayList<TraceEvent> Met(ArrayList<TraceEvent> satisfyingEvents) {
+
+		ArrayList<TraceEvent> result = new ArrayList<TraceEvent>();
+	
+		ArrayList<TraceEvent> queries = FilterEvents("q", satisfyingEvents);
+		ArrayList<TraceEvent> sends = FilterEvents("s", satisfyingEvents);
+		ArrayList<TraceEvent> receives = FilterEvents("r", satisfyingEvents);
+		ArrayList<TraceEvent> publishes = FilterEvents("p", satisfyingEvents);
+			
+		publishes.forEach((p) -> {
+			TraceEvent r = FindEventByPid(receives, p.Pid());
+			if (r != null) {
+				TraceEvent s = FindEventByAction(sends, r.Action());
+
+				if (s != null ) {
+		    		TraceEvent q = FindEventByPid(queries, s.Pid());
+		    		
+		    		if (q != null) {
+		    			result.add(q);
+		    			result.add(s);
+		    			result.add(r);
+		    			result.add(p);
+		    		}
+				}
+			}
+		});
+
+		return result;
+	}
+	
+	private ArrayList<TraceEvent> FilterEvents(String eventType, ArrayList<TraceEvent> events) {
+		
+		ArrayList<TraceEvent> result = new ArrayList<TraceEvent>();
+		
+		for (TraceEvent e : events) {
+		  if (e.Event().equals(eventType)) { 
+			  result.add(e);
+		  }
+		}
+		
+		return result;
+	}
+	
+	private TraceEvent FindEventByPid(ArrayList<TraceEvent> events, int pid) {
+    	
+    	TraceEvent result = null;
+    	int i = 0;
+    	
+    	while (result == null && i < events.size()) {
+    		TraceEvent event = events.get(i); 
+    		result = event.Pid() == pid ? event : null;
+			
+			i++;
+    	}
+    	
+    	return result;
+    }
+    
+    private TraceEvent FindEventByAction(ArrayList<TraceEvent> events, String action) {
+    	
+    	TraceEvent result = null;
+    	int i = 0;
+    	
+    	while (result == null && i < events.size()) {
+    		TraceEvent event = events.get(i); 
+    		result = event.Action().equals(action) ? event : null;
+			
+			i++;
+    	}
+    	
+    	return result;
+    }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;firstEvent&apos; in &apos;RosuHavelund.Register&apos; to &apos;firstEvaluation&apos;&#x0D;&#x0A;- Original project: &apos;RosuHavelund&apos;&#x0D;&#x0A;- Original element: &apos;RosuHavelund.Register.firstEvent&apos;&#x0D;&#x0A;- Renamed element: &apos;RosuHavelund.Register.firstEvaluation&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;firstEvent&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;RosuHavelund{Register.java[Register^firstEvent" name="firstEvaluation" references="true" setter="false" stamp="1615126696371" textual="false" version="1.0"/>
+</session>
