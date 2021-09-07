@@ -35,6 +35,7 @@ public class RosuHavelundMain {
     public static void main(String args[])
     {
         System.out.println("Rosu-Havelund Implementation, Copyright (C) 2021 Richard John Allen");
+        System.out.println("");
         System.out.println("Rosu-Havelund Implementation comes with ABSOLUTELY NO WARRANTY.");
     	System.out.println("This is free software, and you are welcome to redistribute it under");
     	System.out.println("the conditions of the GNU General Public License 2.0");
@@ -179,7 +180,7 @@ public class RosuHavelundMain {
         for (String testTrace : testTraces)
         {
 	        System.out.println("");
-	        System.out.println("Running Trace: [" + testTrace + "]");
+	        System.out.println("Running Trace: <" + testTrace + ">");
 	
 	        Monitor monitor = new Monitor(subFormulae);
 	        
