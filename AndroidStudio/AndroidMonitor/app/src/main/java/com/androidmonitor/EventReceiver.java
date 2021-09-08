@@ -78,7 +78,7 @@ public class EventReceiver extends BroadcastReceiver {
             if (result.Satisfied()) {
 
                 this.LogNewLine();
-                this.Log("Monitor: " + i + " " + result.Message());
+                this.Log(result.Message());
                 this.LogNewLine();
                 this.Log("Events involved: ");
                 for (TraceEvent traceEvent: result.SatisfyingEvents()) {
