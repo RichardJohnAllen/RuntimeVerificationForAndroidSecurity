@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         getApplicationContext().registerReceiver(
                 new EventReceiver(log, monitors),
-                new IntentFilter("TraceEvent"));
+                new IntentFilter("com.androidmonitor.TraceEvent"));
     }
 
     @Override

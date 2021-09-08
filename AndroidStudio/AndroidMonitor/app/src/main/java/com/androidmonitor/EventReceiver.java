@@ -61,19 +61,18 @@ public class EventReceiver extends BroadcastReceiver {
                 intent.getStringExtra("AppName"),
                 intent.getStringExtra("Action"));
 
-        this.Log("Received intent: ");
-        this.LogTraceEvent(event);
+//        this.Log("Received intent: ");
+//        this.LogTraceEvent(event);
 
-        Trace.Singleton().AddEvent(event);
-
-        this.Log("Trace: " + Trace.Singleton().TraceString());
+//        Trace.Singleton().AddEvent(event);
+//        this.Log("Trace: " + Trace.Singleton().TraceString());
 
         for (int i = 0; i < this.monitors.size(); i++) {
             Monitor monitor = this.monitors.get(i);
 
             EvaluationResult result = monitor.Evaluate(event);
 
-            this.Log("Event evaluated");
+//            this.Log("Event evaluated");
 
             if (result.Satisfied()) {
 
@@ -89,7 +88,7 @@ public class EventReceiver extends BroadcastReceiver {
             }
         }
 
-        this.LogNewLine();
+//        this.LogNewLine();
     }
 
     private void LogTraceEvent(TraceEvent event)

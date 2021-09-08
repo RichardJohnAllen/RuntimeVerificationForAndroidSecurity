@@ -38,11 +38,11 @@ public class ContextWrapperSendBroadcastHook extends MethodHook
     @Override
     protected void beforeHookedMethod(MethodHookParam param) throws Throwable
     {
-        LogWriter.LogSendBroadcast(param);
+//        LogWriter.LogSendBroadcast(param);
 
         Intent intent = (Intent)param.args[0];
 
-        if (intent.getAction().equals("ContactStealTwo"))
+        if (!intent.getAction().equals("com.androidmonitor.TraceEvent")) // Don't intercept broadcasts between the interceptor and the monitor
         {
             this.BroadcastEvent(Calendar.getInstance().getTime(), "s", intent.getAction());
         }

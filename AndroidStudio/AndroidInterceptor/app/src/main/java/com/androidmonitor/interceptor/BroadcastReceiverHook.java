@@ -38,10 +38,11 @@ public class BroadcastReceiverHook extends MethodHook
     @Override
     protected void beforeHookedMethod(MethodHookParam param) throws Throwable
     {
-        LogWriter.LogOnBroadcastReceivedCall(param);
+//        LogWriter.LogOnBroadcastReceivedCall(param);
 
         Intent intent = (Intent)param.args[1];
-        if (intent.getAction().equals("ContactStealTwo"))
+
+        if (!intent.getAction().equals("com.androidmonitor.TraceEvent"))  // Don't intercept receipt of intent between the interceptor and the monitor
         {
             this.BroadcastEvent(Calendar.getInstance().getTime(), "r", intent.getAction());
         }

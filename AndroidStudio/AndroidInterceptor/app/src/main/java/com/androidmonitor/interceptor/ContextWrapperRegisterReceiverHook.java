@@ -63,7 +63,7 @@ public class ContextWrapperRegisterReceiverHook extends XC_MethodHook
                 int end = receiverClassName.indexOf("@");
                 receiverClassName = receiverClassName.substring(0, end);
 
-                if (receiverClassName != "uk.ac.swansea.androidmonitor.EventReceiver") // Don't hook our monitors broadcast receiver
+                if (receiverClassName != "com.androidmonitor.EventReceiver") // Don't hook our monitors broadcast receiver
                 {
                     try
                     {

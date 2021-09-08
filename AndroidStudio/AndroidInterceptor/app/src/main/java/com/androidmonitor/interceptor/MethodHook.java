@@ -52,7 +52,7 @@ public class MethodHook extends XC_MethodHook {
 
         Context context = AndroidAppHelper.currentApplication().getBaseContext();
 
-        Intent intent = new Intent("TraceEvent");
+        Intent intent = new Intent("com.androidmonitor.TraceEvent");
 
         intent.putExtra("Time", time.getTime());
         intent.putExtra("Event", event);
